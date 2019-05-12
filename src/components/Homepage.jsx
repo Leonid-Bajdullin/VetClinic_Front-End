@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../App.css';
-import BurgerMenu from './BurgerMenu';
+import Button from './Button';
 
 class Homepage extends Component {
     constructor(props){
@@ -13,7 +13,7 @@ class Homepage extends Component {
                 <div className='article'>Article</div>
                 <div className='article'>Article</div>
                 <div className='article'>Article</div>
-                <div className='button'>Button</div>
+                <Button />
             </div>
         )
     }

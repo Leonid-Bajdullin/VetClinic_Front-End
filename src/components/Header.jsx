@@ -11,8 +11,8 @@ class Header extends Component {
         return(
             <div className='header'>
                 <BurgerMenu />
-                <div className='title'>Title</div>
-                <div className='grid-element'>Search</div>
+                <a href="https://www.w3schools.com" className='title'>Title</a>
+                <div>Search</div>
             </div>
         )
     }

@@ -1,57 +1,60 @@
 * {
-  text-align: center;
-}
+  text-align: center; }
 
 .page-div {
   display: grid;
-  grid-template-rows: 2fr 15fr 6fr 6fr 1fr;
-}
+  grid-template-rows: 2fr 16fr 6fr 6fr 1fr; }
 
 .header {
-  background-color: grey;
+  background-color: bisque;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: 100px;
-  place-items: center;
-}
-
-.title {
-  font-size: 40px;
-  color: white;
-}
+  place-items: center; }
+  .header .title {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 40px;
+    color: darkcyan;
+    text-decoration: none; }
 
 .homepage {
-  background-color: bisque;
+  background-image: url("images/deer_grass_leaves_autumn_trees_59721_1920x1080.jpg");
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 9fr 1fr;
-  place-items: stretch;
-  grid-template-areas: 
-    "none none none"
-    ". button .";
-}
-
-.button {
-  grid-area: button;
-}
-
-.article {
-  background-color: darkgreen;
-  margin: 20px 10px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-}
+  place-items: center;
+  grid-template-areas: "none none none" ". button ."; }
+  .homepage .article {
+    background-color: rgba(0, 128, 0, 0.5);
+    width: 90%;
+    height: 90%; }
+  .homepage .button {
+    grid-area: button;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    height: 50%;
+    width: 40%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid white;
+    border-radius: 20px;
+    box-shadow: 0px 10px 10px lightgray;
+    cursor: pointer;
+    color: white;
+    background-color: lightseagreen;
+    transition: ease 0.3s; }
+  .homepage .button:hover {
+    background-color: darkcyan;
+    font-size: 17px;
+    box-shadow: 0px 5px 10px lightgray;
+    transform: translateY(5px); }
 
 .section {
   background-color: lightgrey;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  place-items: stretch;
-}
+  place-items: stretch; }
 
 .section div {
   margin: 20px 10px;
@@ -61,12 +64,12 @@
   flex-wrap: nowrap;
   justify-content: center;
   align-content: center;
-  align-items: center;
-}
+  align-items: center; }
 
 .footer {
   background-color: grey;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  place-items: center;
-}
+  place-items: center; }
+
+/*# sourceMappingURL=App.css.map */
