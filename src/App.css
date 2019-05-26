@@ -1,9 +1,30 @@
 * {
   text-align: center; }
 
-.page-div {
+.button {
+  grid-area: button;
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid white;
+  border-radius: 20px;
+  box-shadow: 0px 10px 10px lightgray;
+  cursor: pointer;
+  color: white;
+  background-color: lightseagreen;
+  transition: ease 0.3s; }
+
+.button:hover {
+  background-color: darkcyan;
+  font-size: 17px;
+  box-shadow: 0px 5px 10px lightgray;
+  transform: translateY(5px); }
+
+.mainpage {
   display: grid;
-  grid-template-rows: 2fr 16fr 6fr 6fr 1fr; }
+  grid-template-rows: 2fr 16fr 10fr 10fr 1fr; }
 
 .header {
   background-color: bisque;
@@ -17,8 +38,13 @@
     color: darkcyan;
     text-decoration: none; }
 
+.search {
+  border: 2px dashed green;
+  border-radius: 5px;
+  padding: 0 5px; }
+
 .homepage {
-  background-image: url("images/deer_grass_leaves_autumn_trees_59721_1920x1080.jpg");
+  background-image: url("images/dog_run_grass_wind_93303_1920x1080.jpg");
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 9fr 1fr;
@@ -28,48 +54,80 @@
     background-color: rgba(0, 128, 0, 0.5);
     width: 90%;
     height: 90%; }
-  .homepage .button {
-    grid-area: button;
-    padding: 10px;
-    font-size: 15px;
-    font-weight: bold;
-    height: 50%;
-    width: 40%;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border: 2px solid white;
-    border-radius: 20px;
-    box-shadow: 0px 10px 10px lightgray;
-    cursor: pointer;
-    color: white;
-    background-color: lightseagreen;
-    transition: ease 0.3s; }
-  .homepage .button:hover {
-    background-color: darkcyan;
-    font-size: 17px;
-    box-shadow: 0px 5px 10px lightgray;
-    transform: translateY(5px); }
 
 .section {
   background-color: lightgrey;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  place-items: stretch; }
+  grid-template-rows: 7fr 1fr;
+  place-items: center;
+  grid-template-areas: "none none none" ". button ."; }
+  .section div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 90%;
+    height: 90%;
+    font-size: 40px;
+    color: white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    transition: ease 0.2s; }
+  .section div:hover {
+    height: 95%;
+    width: 95%;
+    opacity: 50%;
+    cursor: pointer; }
 
-.section div {
-  margin: 20px 10px;
-  background-color: darkcyan;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-content: center;
-  align-items: center; }
+.grooming {
+  background-image: url("images/grooming.jpg"); }
+
+.diagnostics {
+  background-image: url("images/psychotherapy.jpg"); }
+
+.manipulations {
+  background-image: url("images/vaccination.jpg"); }
 
 .footer {
   background-color: grey;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   place-items: center; }
+
+.servicepage {
+  display: grid;
+  grid-template-rows: 40px auto; }
+  .servicepage table {
+    font-size: 20px;
+    border-collapse: collapse;
+    width: 100%; }
+    .servicepage table th, .servicepage table td {
+      text-align: left;
+      padding: 8px; }
+    .servicepage table th {
+      background-color: darkcyan;
+      color: white; }
+    .servicepage table tr:nth-child(even) {
+      background-color: #f2f2f2; }
+    .servicepage table td:nth-child(1), .servicepage table th:nth-child(1),
+    .servicepage table td:nth-child(3), .servicepage table th:nth-child(1),
+    .servicepage table td:nth-child(4), .servicepage table th:nth-child(1),
+    .servicepage table td:nth-child(5), .servicepage table th:nth-child(1) {
+      width: 15%; }
+    .servicepage table td:nth-child(2) {
+      width: 40%; }
+  .servicepage div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    font-size: 30px;
+    background-color: bisque; }
 
 /*# sourceMappingURL=App.css.map */

@@ -8,7 +8,7 @@ class BurgerMenu extends Component {
 
     render() {
         return(
-            <div className='grid-element'>
+            <div>
                 BurgerMenu
             </div>
         )

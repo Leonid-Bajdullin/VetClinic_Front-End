@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import BurgerMenu from './BurgerMenu';
-import '../App.css';
+import BurgerMenu from '../../components/BurgerMenu';
+import Input from '../../components/Input';
+import '../../App.css';
 
 class Header extends Component {
     constructor(props) {
@@ -12,7 +13,7 @@ class Header extends Component {
             <div className='header'>
                 <BurgerMenu />
                 <a href="https://www.w3schools.com" className='title'>Title</a>
-                <div>Search</div>
+                <Input className='search' placeholder='Search'></Input>
             </div>
         )
     }
