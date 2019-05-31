@@ -11,12 +11,14 @@ import './index.css';
 import App from './App';
 import AllServices from './pages/AllServices';
 import AllWorkers from './pages/AllWorkers';
+import WrappedNormalLoginForm from './pages/LoginPage'
 
 // =========================================================================
 const routing = (
     <Router>
         <div>
             <Route exact path="/" component={App} />
+            <Route path='/login' component={WrappedNormalLoginForm}/>
             <Route path="/allservices" component={AllServices} />
             <Route path="/allworkers" component={AllWorkers} />
         </div>

@@ -8,8 +8,6 @@
   padding: 10px;
   font-size: 15px;
   font-weight: bold;
-  // height: 50%;
-  // width: 40%;
   text-transform: uppercase;
   letter-spacing: 1px;
   border: 2px solid white;
@@ -31,7 +29,7 @@
 // ========================MAINPAGE===========================
 .mainpage {
   display: grid;
-  grid-template-rows: 2fr 16fr 10fr 10fr 1fr;
+  grid-template-rows: 2fr 2fr 16fr 10fr 10fr 1fr;
 }
 
 // --------------------------------HEADER-------------------------------------
@@ -161,5 +159,33 @@
       align-items: center;
       font-size: 30px;
       background-color: bisque;
+    }
+}
+
+// ============================ALLWORKERS==============================
+.workerspage {
+  display: grid;
+  grid-template-columns: 250px auto;
+  border: 5px solid darkcyan;
+    img {
+      max-width: 250px;
+      max-height: 250px;
+    }
+    table {
+      height: 100%;
+      width: 100%;
+      font-size: 30px;
+      text-align: left;
+        th {
+          width: 200px;
+        }
+        td {
+          word-break: break-all;
+          text-align: left;
+          padding: 0 10px;
+        }
+        tr:nth-child(odd){
+          background-color: #f2f2f2;
+        }
     }
 }
