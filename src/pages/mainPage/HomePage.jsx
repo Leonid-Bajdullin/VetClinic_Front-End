@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import '../App.css';
-import BurgerMenu from './BurgerMenu';
+import '../../App.css';
+import Button from '../../components/Button';
 
-class Homepage extends Component {
+class HomePage extends Component {
     constructor(props){
         super(props)
     }
@@ -13,11 +13,11 @@ class Homepage extends Component {
                 <div className='article'>Article</div>
                 <div className='article'>Article</div>
                 <div className='article'>Article</div>
-                <div className='button'>Button</div>
+                <Button>Make an order</Button>
             </div>
         )
     }
 }
 
-export default Homepage;
+export default HomePage;
     
