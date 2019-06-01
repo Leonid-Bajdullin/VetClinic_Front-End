@@ -12,6 +12,7 @@ import App from './App';
 import AllServices from './pages/AllServices';
 import AllWorkers from './pages/AllWorkers';
 import WrappedNormalLoginForm from './pages/LoginPage'
+import WrappedRegistrationForm from './pages/RegistrationPage'
 
 // =========================================================================
 const routing = (
@@ -19,6 +20,7 @@ const routing = (
         <div>
             <Route exact path="/" component={App} />
             <Route path='/login' component={WrappedNormalLoginForm}/>
+            <Route path='/registration' component={WrappedRegistrationForm} />
             <Route path="/allservices" component={AllServices} />
             <Route path="/allworkers" component={AllWorkers} />
         </div>
