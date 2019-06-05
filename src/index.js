@@ -3,7 +3,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
-import createHistory from "history/createBrowserHistory";
 
 // ============================FILES & COMPONENTS========================
 import * as serviceWorker from './serviceWorker';
@@ -12,7 +11,7 @@ import App from './App';
 import AllServices from './pages/AllServices';
 import AllWorkers from './pages/AllWorkers';
 import WrappedNormalLoginForm from './pages/LoginPage'
-import WrappedRegistrationForm from './pages/RegistrationPage'
+import RegistrationForm from './pages/RegistrationPage';
 
 // =========================================================================
 const routing = (
@@ -20,7 +19,7 @@ const routing = (
         <div>
             <Route exact path="/" component={App} />
             <Route path='/login' component={WrappedNormalLoginForm}/>
-            <Route path='/registration' component={WrappedRegistrationForm} />
+            <Route path='/registration' component={RegistrationForm} />
             <Route path="/allservices" component={AllServices} />
             <Route path="/allworkers" component={AllWorkers} />
         </div>

@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import Header from './mainPage/Header';
+import LoginPage from './LoginPage';
 import HomePage from './mainPage/HomePage';
 import SectionServices from './mainPage/SectionServices';
 import SectionWorkers from './mainPage/SectionWorkers';
 import Footer from './mainPage/Footer';
 import '../App.css';
-import WrappedNormalLoginForm from './LoginPage';
 
 
 class MainPage extends Component {
@@ -17,7 +17,7 @@ class MainPage extends Component {
         return(
             <div className="mainpage">
                 <Header />
-                <WrappedNormalLoginForm />
+                <LoginPage />
                 <HomePage />
                 <SectionServices />
                 <SectionWorkers />
