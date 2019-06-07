@@ -5,13 +5,22 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 class RegistrationForm extends Component {
   constructor() {
-    super();
-
-// functions
-    
+    super();    
 
 // Validator
     this.validator = new FormValidator([
+      {
+        field: 'name',
+        method: 'isEmpty',
+        validWhen: false,
+        message: 'Name is required'
+      },
+      {
+        field: 'lastName',
+        method: 'isEmpty',
+        validWhen: false,
+        message: 'Lastname is required'
+      },
       { 
         field: 'email', 
         method: 'isEmpty', 
@@ -57,7 +66,10 @@ class RegistrationForm extends Component {
       }
     ]);
 
+// state
     this.state = {
+      name: '',
+      lastName: '',
       email: '',
       phone: '',
       password: '',
@@ -68,6 +80,7 @@ class RegistrationForm extends Component {
     this.submitted = false;
   }
 
+// functions
   passwordMatch = (confirmation, state) => (state.password === confirmation)
 
   handleInputChange = event => {
@@ -89,17 +102,45 @@ class RegistrationForm extends Component {
       // handle actual form submission here
         let savedUser = await HelperFunctions.fetchFunc(
           'POST',
-          {email: this.state.email, phone: this.state.phone}
+          {
+            name: this.state.name,
+            lastName: this.state.lastName,
+            email: this.state.email,
+            phone: this.state.phone,
+            password: this.state.password
+          },
+          'users/signup'
         )
-        console.log(`We saved a user for you. Here are his/her data: ${savedUser}`);
       }
   }
   // if the form has been submitted at least once, then check validity every time we render, otherwise just use what's in state
+  
+  // rendering
   render() {
     let validation = this.submitted ? this.validator.validate(this.state) : this.state.validation
     return (
       <form className="demoForm">
         <h2>Sign up</h2>
+
+        <div className={validation.name.isInvalid ? 'has-error' : undefined}>
+          <label htmlFor="name">Name</label>
+          <input type="text" className="form-control"
+            name="name"
+            placeholder="Enter your Name please"
+            onChange={this.handleInputChange}
+          />
+          <span className="help-block">{validation.name.message}</span>
+        </div>
+
+        <div className={validation.lastName.isInvalid ? 'has-error' : undefined}>
+          <label htmlFor="lastName">Lastname</label>
+          <input type="text" className="form-control"
+            name="lastName"
+            placeholder="Enter your Lastname please"
+            onChange={this.handleInputChange}
+          />
+          <span className="help-block">{validation.lastName.message}</span>
+        </div>
 
         <div className={validation.email.isInvalid ? 'has-error' : undefined}>
           <label htmlFor="email">Email address</label>
@@ -111,7 +152,7 @@ class RegistrationForm extends Component {
           <span className="help-block">{validation.email.message}</span>
         </div>
 
-        <div className={validation.phone.isInvalid && 'has-error'}>
+        <div className={validation.email.isInvalid ? 'has-error' : undefined}>
           <label htmlFor="phone">Phone</label>
           <input type="phone" className="form-control"
             name="phone"
@@ -121,7 +162,7 @@ class RegistrationForm extends Component {
           <span className="help-block">{validation.phone.message}</span>
         </div>
 
-        <div className={validation.password.isInvalid && 'has-error'}>
+        <div className={validation.email.isInvalid ? 'has-error' : undefined}>
           <label htmlFor="password">Password</label>
           <input type="password" className="form-control"
             name="password"
@@ -130,8 +171,8 @@ class RegistrationForm extends Component {
           <span className="help-block">{validation.password.message}</span>
         </div>
 
-        <div className={validation.password_confirmation.isInvalid && 'has-error'}>
-          <label htmlFor="password_confirmation">Password Again</label>
+        <div className={validation.email.isInvalid ? 'has-error' : undefined}>
+          <label htmlFor="password_confirmation">Confirm Password</label>
           <input type="password" className="form-control"
             name="password_confirmation"
             onChange={this.handleInputChange}

@@ -1,60 +1,58 @@
 import React, {Component} from 'react';
-import { Form, Icon, Input, Button, Checkbox } from 'antd';
+import Input from '../components/Input';
+import HelperFunctions from '../utils/HelperFunctions';
 
-class NormalLoginForm extends Component {
-  handleSubmit = e => {
-    e.preventDefault();
-    this.props.form.validateFields((err, values) => {
-      if (!err) {
-        console.log('Received values of form: ', values);
-      }
+class LoginPage extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      email: '',
+      password: ''
+    }
+  }
+
+  handleInputChange = event => {
+    event.preventDefault();
+
+    this.setState({
+      [event.target.name]: event.target.value,
     });
-  };
+  }
+
+  handleSignIn = async(event) => {
+    event.preventDefault();
+
+    let userData = await HelperFunctions.fetchFunc(
+      'POST',
+      {
+        email: this.state.email,
+        password: this.state.password
+      },
+      'users/login'
+    )
+  }
 
   render() {
-    const { getFieldDecorator } = this.props.form;
-    return (
-      <Form onSubmit={this.handleSubmit} className="login-form">
-        <Form.Item>
-          {getFieldDecorator('username', {
-            rules: [{ required: true, message: 'Please input your username!' }],
-          })(
-            <Input
-              prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-              placeholder="Username"
-            />,
-          )}
-        </Form.Item>
-        <Form.Item>
-          {getFieldDecorator('password', {
-            rules: [{ required: true, message: 'Please input your Password!' }],
-          })(
-            <Input
-              prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
-              type="password"
-              placeholder="Password"
-            />,
-          )}
-        </Form.Item>
-        <Form.Item>
-          {getFieldDecorator('remember', {
-            valuePropName: 'checked',
-            initialValue: true,
-          })(<Checkbox>Remember me</Checkbox>)}
-          <a className="login-form-forgot" href="">
-            Forgot password
-          </a>
-          <Button type="primary" htmlType="submit" className="login-form-button">
-            Log in
-          </Button>
-          Or <a href="">register now!</a>
-        </Form.Item>
-      </Form>
-    );
+    return(
+      <div>
+        <input 
+          name='email'
+          onChange={this.handleInputChange} 
+          type='text' 
+          placeholder='Enter your email' 
+        ></input>
+        <input 
+          name='password'
+          onChange={this.handleInputChange} 
+          type='password' 
+          placeholder='Enter your password'
+        ></input>
+        <button onClick={this.handleSignIn}>Sign in</button>
+      </div>
+    )
   }
 }
 
-const WrappedNormalLoginForm = Form.create({ name: 'normal_login' })(NormalLoginForm);
+export default LoginPage;
 
-export default WrappedNormalLoginForm;
-// ReactDOM.render(<WrappedNormalLoginForm />, mountNode);

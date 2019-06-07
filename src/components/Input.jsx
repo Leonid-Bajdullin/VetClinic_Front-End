@@ -7,7 +7,12 @@ class Input extends Component {
 
     render() {
         return(
-            <input className={this.props.className} placeholder={this.props.placeholder}></input>
+            <input
+                className={this.props.className}
+                placeholder={this.props.placeholder}
+                type={this.props.type}
+                name={this.props.name}
+            ></input>
         )
     }
 }

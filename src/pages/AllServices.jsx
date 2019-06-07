@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import '../App.css'
+import Header from './mainPage/Header';
 
 function AllServices() {
     return(
         <div>
+            <Header />
             <div className='servicepage'>
                 <div>Diagnostics</div>
                 <table>

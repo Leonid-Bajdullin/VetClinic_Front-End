@@ -1,5 +1,5 @@
 class HelperFunctions {
-    static fetchFunc (method, data) {
+    static fetchFunc (method, data, url) {
         let obj = {
           headers: {
             'Accept': 'application/json',
@@ -10,7 +10,7 @@ class HelperFunctions {
         if (method === "POST") {
           obj.body = JSON.stringify(data)
         }
-        return fetch("http://localhost:4000/users", obj)
+        return fetch(`http://localhost:4000/${url}`, obj)
           .then(res => res.json())
     }
 }
