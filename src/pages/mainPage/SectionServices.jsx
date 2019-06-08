@@ -13,7 +13,7 @@ class SectionServices extends Component {
                 <div className='grooming'>Grooming</div>
                 <div className='diagnostics'>Diagnostics</div>
                 <div className='manipulations'>Manipulations</div>
-                <Button>All services</Button>
+                <a className='button' href='http://localhost:3000/allservices'>All services</a>
             </div>
         )
     }
