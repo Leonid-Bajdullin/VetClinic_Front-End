@@ -1,34 +1,41 @@
-
-// =============================PACKAGES=================================
 import React from 'react';
+// =============================PACKAGES=================================
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
-
+import {Router, Route, Switch} from 'react-router-dom';
+import {Provider} from 'react-redux';
 // ============================FILES & COMPONENTS========================
-import * as serviceWorker from './serviceWorker';
-import './index.css';
 import App from './App';
+import MainPage from './pages/MainPage';
 import AllServices from './pages/AllServices';
 import AllWorkers from './pages/AllWorkers';
-import WrappedNormalLoginForm from './pages/LoginPage'
 import RegistrationForm from './pages/RegistrationPage';
+import OrderCreator from './pages/OrderCreator';
+import history from './history';
+import './index.css';
+import store from "./store";
+import * as serviceWorker from './serviceWorker';
+// ==============================REACT=======================================
 
-// =========================================================================
 const routing = (
-    <Router>
-        <div>
-            <Route exact path="/" component={App} />
-            <Route path='/login' component={WrappedNormalLoginForm}/>
-            <Route path='/registration' component={RegistrationForm} />
-            <Route path="/allservices" component={AllServices} />
-            <Route path="/allworkers" component={AllWorkers} />
-        </div>
-    </Router>
+<Router history={history}>
+      <Switch>
+        <Route exact path="/" component={MainPage} />
+        <Route path='/registration' component={RegistrationForm} />
+        <Route path="/allservices" component={AllServices} />
+        <Route path="/allworkers" component={AllWorkers} />
+        <Route path="/createorder" component={OrderCreator} />
+      </Switch>
+</Router>
 )
 
 ReactDOM.render(routing, document.getElementById('root'));
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+
+// ==============================REDUX========================================
+// ReactDOM.render(
+//   <Provider store={store}>
+//     <App />
+//   </Provider>, document.getElementById('root'));
+
+
 serviceWorker.unregister();
