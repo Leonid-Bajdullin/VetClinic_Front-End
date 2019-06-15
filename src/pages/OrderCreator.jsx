@@ -34,7 +34,7 @@ class OrderCreator extends Component {
     const result = await HelperFunctions.fetchFunc(
       'POST',
     {
-      service: this.state.service_name,
+      service: event.target.value,
     },
     'services/check_price'
     )
@@ -126,11 +126,11 @@ export default OrderCreator;
 
 // const mapStateToProps = (state) => {
 //   return {
-//     service: serviceReducer
+//     price: state.price
 //   }
 // };
 
-// const mapDispatchToProps = () => {
+// const mapDispatchToProps = {
 //   setPrice: getServicePrice
 // }
 

@@ -7,13 +7,14 @@ const serviceReducer = (state = {
         return {price: 0};
     }
     if(action.type === 'SET_PRICE') {
-        state = {
+        var newState = {
           ...state,
           price: action.payload
         };
+        return newState;
     }
+   
     return state;
-
 }
 
 export default serviceReducer;

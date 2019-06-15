@@ -18,13 +18,13 @@ import * as serviceWorker from './serviceWorker';
 
 const routing = (
 <Router history={history}>
-      <Switch>
-        <Route exact path="/" component={MainPage} />
-        <Route path='/registration' component={RegistrationForm} />
-        <Route path="/allservices" component={AllServices} />
-        <Route path="/allworkers" component={AllWorkers} />
-        <Route path="/createorder" component={OrderCreator} />
-      </Switch>
+  <Switch>
+    <Route exact path="/" component={MainPage} />
+    <Route path='/registration' component={RegistrationForm} />
+    <Route path="/allservices" component={AllServices} />
+    <Route path="/allworkers" component={AllWorkers} />
+    <Route path="/createorder" component={OrderCreator} />
+  </Switch>
 </Router>
 )
 
