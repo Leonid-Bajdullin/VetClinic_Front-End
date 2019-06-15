@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FormValidator from '../utils/FormValidator';
 import HelperFunctions from '../utils/HelperFunctions';
 import 'bootstrap/dist/css/bootstrap.css';
+import history from '../history';
 
 class RegistrationForm extends Component {
   constructor() {
@@ -111,6 +112,7 @@ class RegistrationForm extends Component {
           },
           'users/signup'
         )
+        history.push('/');
       }
   }
   // if the form has been submitted at least once, then check validity every time we render, otherwise just use what's in state

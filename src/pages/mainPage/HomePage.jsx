@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../../App.css';
-import Button from '../../components/Button';
+import LoginBar from './homePage/LoginBar';
+import {Link} from 'react-router-dom';
 
 class HomePage extends Component {
     constructor(props){
@@ -10,10 +11,8 @@ class HomePage extends Component {
     render() {
         return(
             <div className='homepage'>
-                <div className='article'>Article</div>
-                <div className='article'>Article</div>
-                <div className='article'>Article</div>
-                <Button>Make an order</Button>
+                <LoginBar className='loginbar'/>
+                <Link to='/createorder' className='button'>Make an order</Link>
             </div>
         )
     }

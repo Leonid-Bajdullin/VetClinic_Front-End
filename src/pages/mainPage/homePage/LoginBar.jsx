@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Input from '../components/Input';
-import HelperFunctions from '../utils/HelperFunctions';
+import HelperFunctions from '../../../utils/HelperFunctions';
+// import history from '../../../history';
 
-class LoginPage extends Component {
+class LoginBar extends Component {
   constructor(props) {
     super(props);
 
@@ -32,10 +32,14 @@ class LoginPage extends Component {
       'users/login'
     )
   }
+  
+  // onSubmit = () => {
+  //   this.props.history.push('/')
+  // }
 
   render() {
     return(
-      <div>
+      <div className={this.props.className}>
         <input 
           name='email'
           onChange={this.handleInputChange} 
@@ -49,10 +53,11 @@ class LoginPage extends Component {
           placeholder='Enter your password'
         ></input>
         <button onClick={this.handleSignIn}>Sign in</button>
+        <a href='http://localhost:3000/registration'>Register now</a>
       </div>
     )
   }
 }
 
-export default LoginPage;
+export default LoginBar;
 
