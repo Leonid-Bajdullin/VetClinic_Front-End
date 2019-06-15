@@ -8,7 +8,8 @@ class LoginBar extends Component {
 
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      isLoggenIn: false
     }
   }
 
@@ -31,6 +32,7 @@ class LoginBar extends Component {
       },
       'users/login'
     )
+    localStorage.setItem("token", userData.token);
   }
   
   // onSubmit = () => {
