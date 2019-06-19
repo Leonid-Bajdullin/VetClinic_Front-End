@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import HelperFunctions from '../../../utils/HelperFunctions';
+import {Link} from'react-router-dom';
 // import history from '../../../history';
 
 class LoginBar extends Component {
@@ -9,7 +10,8 @@ class LoginBar extends Component {
     this.state = {
       email: '',
       password: '',
-      isLoggenIn: false
+      isLoggedIn: false,
+      name: 'Leo'
     }
   }
 
@@ -30,34 +32,53 @@ class LoginBar extends Component {
         email: this.state.email,
         password: this.state.password
       },
-      'users/login'
+      'users/signin'
     )
     localStorage.setItem("token", userData.token);
+    if(userData.success === true) {
+      this.setState(prevState => ({
+        isLoggedIn: !prevState.isLoggedIn,
+        name: userData.name
+      }));
+    } else {
+      alert('Wrong credentials!');
+    }
   }
-  
-  // onSubmit = () => {
-  //   this.props.history.push('/')
+
+  // componentWillUnmount() {
+  //   localStorage.removeItem("token");
   // }
 
   render() {
-    return(
-      <div className={this.props.className}>
-        <input 
-          name='email'
-          onChange={this.handleInputChange} 
-          type='text' 
-          placeholder='Enter your email' 
-        ></input>
-        <input 
-          name='password'
-          onChange={this.handleInputChange} 
-          type='password' 
-          placeholder='Enter your password'
-        ></input>
-        <button onClick={this.handleSignIn}>Sign in</button>
-        <a href='http://localhost:3000/registration'>Register now</a>
-      </div>
-    )
+    if(this.state.isLoggedIn===true) {
+      return (
+        <div className={this.props.className}>
+          <div>Hello, {this.state.name}</div>
+          <button>Sign out</button>
+          <Link to='/createorder' className='button'>Make an order</Link>
+        </div> 
+      )
+    }
+    else {
+      return(
+        <div className={this.props.className}>
+          <input 
+            name='email'
+            onChange={this.handleInputChange} 
+            type='text' 
+            placeholder='Enter your email' 
+          ></input>
+          <input 
+            name='password'
+            onChange={this.handleInputChange} 
+            type='password' 
+            placeholder='Enter your password'
+          ></input>
+          <button onClick={this.handleSignIn}>Sign in</button>
+          <a href='http://localhost:3000/registration'>Register now</a>
+        </div>
+      )
+    }
   }
 }
 

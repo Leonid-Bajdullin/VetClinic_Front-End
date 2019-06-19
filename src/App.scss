@@ -90,6 +90,7 @@ a {
 // --------------------------------HEADER-------------------------------------
 .header {
   background-color: bisque;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: 100px;
@@ -267,8 +268,8 @@ a {
   height: 100%;
   background-image: url('images/Lions_homepage_background.jpg');
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-content: center;
   align-items: center;  
 }
@@ -276,6 +277,7 @@ a {
 .order-layout {
   // width: 40%;
   // height: 50%;
+  background-color: rgba($color: lightgrey, $alpha: 0.5);
   border: 2px solid darkcyan;
   display: grid;
   grid-template-rows: 10% 80% 10%;
@@ -286,5 +288,10 @@ a {
   margin: auto;
   display: grid;
   grid-auto-rows: 1fr;
+  place-items: center;
+    label {
+      display: inline-block;
+      margin: 5px;
+    }
 }
 

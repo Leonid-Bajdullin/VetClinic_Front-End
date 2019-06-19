@@ -4,6 +4,10 @@ import serviceReducer from '../reducers/serviceReducer';
 import { connect } from 'react-redux';
 import getServicePrice from '../actionCreators/serviceActions';
 import App from '../App';
+import DateTimePicker from 'react-datetime-picker';
+import Header from './mainPage/Header';
+
+const jwt = require('jsonwebtoken');
 
 class OrderCreator extends Component {
   constructor(props) {
@@ -14,9 +18,12 @@ class OrderCreator extends Component {
         service_name: "Doctor's appointment",
         price: 30,
         worker: 'Markus',
-        startTime: 9
+        userId: '',
+        start_time: new Date()
       }
   }
+
+  datetimeChange = date => this.setState({ date })
 
   handleInputChange = event => {
     event.preventDefault();
@@ -58,26 +65,33 @@ class OrderCreator extends Component {
         service: this.state.service_name,
         price: this.state.price,
         worker: this.state.worker,
-        startTime: this.state.startTime
+        start_time: this.state.startTime,
+        userId: this.state.userId,
+        token: localStorage.getItem('token')
       },
       'orders/save_order'
     )
   }
 
+  componentDidMount() {
+    const token = localStorage.getItem('token');
+    const decoded = jwt.decode(token);
+    this.setState({
+      userId: decoded.userId
+    })
+  }
+
   render() {
     return (
       <div className='order-page'>
-        <div className='order-layout'>
+        <Header />
+        <form className='order-layout'>
           <div style={{fontSize: '40px', display: 'inline-block'}}>
               Create your order please
           </div>
           <div style={{display: 'inline-block'}}>
               <div className='order-inputs'>
-              <select className='select-css' name='service_type' onChange={this.handleInputChange}>
-                  <option value='value'>Grooming</option>
-                  <option>Diagnostics</option>
-                  <option>Manipulations</option>
-              </select>
+              <label htmlFor="service">Choose service</label>
               <select className='select-css' name='service_name' onChange={this.handleServiceChange.bind(this)}>
                   <option>Doctor's appointment</option>
                   <option>Complex grooming</option>
@@ -92,21 +106,19 @@ class OrderCreator extends Component {
                   <option>Surgery</option>
                   <option>Sonography</option>
               </select>
+              <label htmlFor="worker">Choose worker</label>
               <select className='select-css' name='worker' onChange={this.handleInputChange}>
                   <option value='5d04b328bf7ba2fcbffdf60c'>Markus</option>
                   <option value=''>Amanda</option>
                   <option value=''>Connor</option>
               </select>
-              <select className='select-css' name='date'>
-                  <option>today</option>
-                  <option>tomorrow</option>
-                  <option>after tomorrow</option>
-              </select>
-              <select className='select-css' name='startTime' onChange={this.handleInputChange}>
-                  <option>9.00</option>
-                  <option>10.00</option>
-                  <option>11.00</option>
-              </select>
+              <label htmlFor="datetime">Choose date and time</label>
+              <div>
+                <DateTimePicker 
+                  onChange={this.datetimeChange}
+                  value={this.state.date}
+                />
+              </div>
               </div>
           </div>
           <div style={{fontSize: '30px', display: 'inline-block'}}>
@@ -114,7 +126,7 @@ class OrderCreator extends Component {
               <span>{this.state.price}</span>
               <button className='button' onClick={this.handleSubmit}>Submit order</button>
           </div>
-        </div>
+        </form>
       </div>
     )
   }
