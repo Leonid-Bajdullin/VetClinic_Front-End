@@ -9,7 +9,7 @@ class SectionServices extends Component {
 
     render() {
         return(
-            <div className='section' style={{backgroundColor: 'bisque'}}>
+            <div className='section'>
                 <div className='grooming'>Grooming</div>
                 <div className='diagnostics'>Diagnostics</div>
                 <div className='manipulations'>Manipulations</div>

@@ -101,7 +101,7 @@ class RegistrationForm extends Component {
 
     if (validation.isValid) {
       // handle actual form submission here
-        let savedUser = await HelperFunctions.fetchFunc(
+        let result = await HelperFunctions.fetchFunc(
           'POST',
           {
             name: this.state.name,
@@ -113,6 +113,7 @@ class RegistrationForm extends Component {
           'users/signup'
         )
         history.push('/');
+        alert(result.message);
       }
   }
   // if the form has been submitted at least once, then check validity every time we render, otherwise just use what's in state

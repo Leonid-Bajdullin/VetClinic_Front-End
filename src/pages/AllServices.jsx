@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import '../App.css'
 import Header from './mainPage/Header';
+import Footer from './mainPage/Footer';
 
 function AllServices() {
     return(
@@ -119,6 +120,7 @@ function AllServices() {
                     </tr>
                 </table>
             </div>
+            <Footer />
         </div>
     );
 }

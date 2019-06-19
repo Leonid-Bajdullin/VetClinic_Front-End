@@ -22,7 +22,7 @@ class App extends Component {
       <MainPage />
     )
   }
-
+  
   // REDUX
   // render() {
   //   return (

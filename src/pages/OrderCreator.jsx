@@ -1,11 +1,11 @@
 import React, { Component }  from 'react';
 import HelperFunctions from '../utils/HelperFunctions';
-import serviceReducer from '../reducers/serviceReducer';
-import { connect } from 'react-redux';
-import getServicePrice from '../actionCreators/serviceActions';
-import App from '../App';
+// import serviceReducer from '../reducers/serviceReducer';
+// import { connect } from 'react-redux';
+// import getServicePrice from '../actionCreators/serviceActions';
 import DateTimePicker from 'react-datetime-picker';
 import Header from './mainPage/Header';
+import Footer from './mainPage/Footer';
 
 const jwt = require('jsonwebtoken');
 
@@ -86,7 +86,7 @@ class OrderCreator extends Component {
       <div className='order-page'>
         <Header />
         <form className='order-layout'>
-          <div style={{fontSize: '40px', display: 'inline-block'}}>
+          <div className='text-info'>
               Create your order please
           </div>
           <div style={{display: 'inline-block'}}>
@@ -121,7 +121,7 @@ class OrderCreator extends Component {
               </div>
               </div>
           </div>
-          <div style={{fontSize: '30px', display: 'inline-block'}}>
+          <div className='text-info'>
               <span>Total price:</span>
               <span>{this.state.price}</span>
               <button className='button' onClick={this.handleSubmit}>Submit order</button>

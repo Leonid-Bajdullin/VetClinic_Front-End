@@ -50,7 +50,7 @@ a {
 	width: 95%;
 	max-width: 100%;
 	box-sizing: border-box;
-	margin: 10px 0px;
+	// margin: 10px 0px;
 	border: 1px solid #aaa;
 	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
 	border-radius: .5em;
@@ -84,12 +84,12 @@ a {
 // ========================MAINPAGE===========================
 .mainpage {
   display: grid;
-  grid-template-rows: 2fr 16fr 10fr 10fr 1fr;
+  grid-template-rows: 1.5fr 9fr 7fr 5fr 1fr;
 }
 
 // --------------------------------HEADER-------------------------------------
 .header {
-  background-color: bisque;
+  background-image: linear-gradient(rgb(127, 199, 187), rgb(66, 178, 162));
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -104,7 +104,7 @@ a {
 }
 
 .search {
-  border: 2px dashed green;
+  border: 2px solid darkcyan;
   border-radius: 5px;
   padding: 0 5px;
 }
@@ -112,6 +112,7 @@ a {
 // --------------------------------HOMEPAGE--------------------------------------
 .homepage {
   background-image: url('images/dog_run_grass_wind_93303_1920x1080.jpg');
+  background-size: cover;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 9fr 1fr;
@@ -141,7 +142,7 @@ a {
 
 // -------------------------------SERVICE SECTION--------------------------------
 .section {
-  background-color: lightgrey;
+  background-image: linear-gradient( rgb(255, 193, 128), rgb(255, 230, 204));
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 7fr 1fr;
@@ -162,6 +163,7 @@ a {
       color: white;
       background-repeat: no-repeat;
       background-size: cover;
+      border: 2px solid darkcyan;
       border-radius: 10px;
       transition: ease 0.2s;
     }
@@ -187,8 +189,10 @@ a {
 
 // ----------------------------------FOOTER-------------------------------
 .footer {
-  background-color: grey;
+  background-image: radial-gradient(rgba(66, 178, 162, 1), rgba(66, 178, 162, 0.7));
   display: grid;
+  width: 100%;
+  min-height: 50px;
   grid-template-columns: 1fr 1fr 1fr;
   place-items: center;
 }
@@ -206,7 +210,7 @@ a {
           padding: 8px;
         }
         th {
-          background-color: darkcyan;
+          background-color: rgb(66, 178, 162);
           color: white;
         }
         tr:nth-child(even){
@@ -267,6 +271,7 @@ a {
 .order-page {
   height: 100%;
   background-image: url('images/Lions_homepage_background.jpg');
+  background-size: cover;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -277,14 +282,26 @@ a {
 .order-layout {
   // width: 40%;
   // height: 50%;
-  background-color: rgba($color: lightgrey, $alpha: 0.5);
-  border: 2px solid darkcyan;
   display: grid;
   grid-template-rows: 10% 80% 10%;
 }
 
+.text-info {
+  background-color: rgba($color: lightgrey, $alpha: 0.5);
+  font-size: 30px;
+  color: black;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  border: 2px solid darkcyan;
+ }
+
 .order-inputs {
   // width: 40%;
+  background-color: rgba($color: lightgrey, $alpha: 0.5);
+  border: 2px solid darkcyan;
   margin: auto;
   display: grid;
   grid-auto-rows: 1fr;
@@ -294,4 +311,5 @@ a {
       margin: 5px;
     }
 }
+
 

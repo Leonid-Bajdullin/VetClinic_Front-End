@@ -12,7 +12,7 @@ class Header extends Component {
         return(
             <div className='header'>
                 <BurgerMenu />
-                <a href="http://localhost:3000" className='title'>Title</a>
+                <a href="http://localhost:3000" className='title'>VetClinic</a>
                 <Input className='search' placeholder='Search'></Input>
             </div>
         )
