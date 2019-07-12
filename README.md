@@ -1,3 +1,21 @@
+TEST PROJECT FOR JS FULLSTACK COURSES
+
+FRONT-END: React, React Router
+BACK-END: Node.js, express, mongoose
+DATABASE: MongoDB
+TRANSPORT: REST API
+
+TODOs:
+- deploy project
+- add opportunity to add several services in one order
+- use Database data to fill the pages with information
+- finish Search, BurgerMenu and their styling
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
